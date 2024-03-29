@@ -1,0 +1,43 @@
+Net(
+  (attr_net): Net(
+    (driverID_em): Embedding(24000, 16)
+    (weekID_em): Embedding(7, 3)
+    (timeID_em): Embedding(1440, 8)
+  )
+  (spatio_temporal): Net(
+    (geo_conv): Net(
+      (state_em): Embedding(2, 2)
+      (process_coords): Linear(in_features=4, out_features=16, bias=True)
+      (conv): Conv1d(16, 32, kernel_size=(3,), stride=(1,))
+    )
+    (rnn): LSTM(61, 128, num_layers=2, batch_first=True)
+    (attr2atten): Linear(in_features=28, out_features=128, bias=True)
+  )
+  (entire_estimate): EntireEstimator(
+    (input2hid): Linear(in_features=156, out_features=128, bias=True)
+    (residuals): ModuleList(
+      (0-2): 3 x Linear(in_features=128, out_features=128, bias=True)
+    )
+    (hid2out): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (local_estimate): LocalEstimator(
+    (input2hid): Linear(in_features=128, out_features=64, bias=True)
+    (hid2hid): Linear(in_features=64, out_features=32, bias=True)
+    (hid2out): Linear(in_features=32, out_features=1, bias=True)
+  )
+)
+[('task', 'train'), ('batch_size', 64), ('epochs', 2), ('weight_file', None), ('result_file', './result/deeptte.res'), ('kernel_size', 3), ('pooling_method', 'attention'), ('alpha', 0.1), ('log_file', 'run_log_GPU')]
+Training Epoch 0, File train_00, Loss 0.40712034702301025
+Training Epoch 0, File train_01, Loss 0.28792378306388855
+Training Epoch 0, File train_02, Loss 0.3002089262008667
+Training Epoch 0, File train_03, Loss 0.29770636558532715
+Training Epoch 0, File train_04, Loss 0.30275216698646545
+Evaluate File testRemoveBeginLast, Loss 0.43364417552948
+Save weight file run_log_GPU_2024-03-29_23:14:53.567929
+Training Epoch 1, File train_00, Loss 0.2752886116504669
+Training Epoch 1, File train_01, Loss 0.2634572386741638
+Training Epoch 1, File train_02, Loss 0.2588654160499573
+Training Epoch 1, File train_03, Loss 0.28370073437690735
+Training Epoch 1, File train_04, Loss 0.2873802185058594
+Evaluate File testRemoveBeginLast, Loss 0.43044689297676086
+Save weight file run_log_GPU_2024-03-29_23:16:18.569104
