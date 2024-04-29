@@ -1,6 +1,6 @@
 # DeepTTE
 
-These are the code of AAAI 2018 paper ***When Will You Arrive? Estimating Travel Time Based on Deep Neural Networks***, but fixed some problems by OscarHsu.
+These are the code of AAAI 2018 paper ***When Will You Arrive? Estimating Travel Time Based on Deep Neural Networks***, but fixed some problems by NadaBadawi.
 
 This project provides the complete version of code and part of sample data in Chengdu.
 
