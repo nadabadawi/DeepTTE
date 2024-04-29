@@ -22,7 +22,7 @@ parser = argparse.ArgumentParser()
 # basic args
 parser.add_argument('--task', type = str, default='train')
 #parser.add_argument('--task', type = str, default='test')
-parser.add_argument('--batch_size', type = int, default = 64)
+parser.add_argument('--batch_size', type = int, default = 10)
 #parser.add_argument('--batch_size', type = int, default = 1400)
 parser.add_argument('--epochs', type = int, default = 100)
 

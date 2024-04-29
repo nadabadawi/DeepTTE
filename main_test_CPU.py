@@ -45,16 +45,34 @@ args = parser.parse_args()
 config = json.load(open('./config.json', 'r'))
 
 
+# def write_result(fs, pred_dict, attr):
+#     pred = pred_dict['pred'].data.cpu().numpy()
+#     label = pred_dict['label'].data.cpu().numpy()
+
+#     for i in range(pred_dict['pred'].size()[0]):
+#         fs.write('%.6f %.6f\n' % (label[i][0], pred[i][0]))
+
+#         dateID = attr['dateID'].data[i]
+#         timeID = attr['timeID'].data[i]
+#         driverID = attr['driverID'].data[i]
+
 def write_result(fs, pred_dict, attr):
     pred = pred_dict['pred'].data.cpu().numpy()
     label = pred_dict['label'].data.cpu().numpy()
 
     for i in range(pred_dict['pred'].size()[0]):
-        fs.write('%.6f %.6f\n' % (label[i][0], pred[i][0]))
-
+        # Extract dateID, timeID, and driverID
         dateID = attr['dateID'].data[i]
         timeID = attr['timeID'].data[i]
         driverID = attr['driverID'].data[i]
+        
+        # Write dateID, timeID, and driverID to file
+        fs.write('%d %d %d' % (dateID, timeID, driverID))
+        
+        # Write label and pred values to file
+        fs.write(' %.6f %.6f\n' % (label[i][0], pred[i][0]))
+
+
 
 
 def evaluate(model, elogger, files, save_result = False):
