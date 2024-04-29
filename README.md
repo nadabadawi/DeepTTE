@@ -1,19 +1,15 @@
 # DeepTTE
 
-These are the code of AAAI 2018 paper ***When Will You Arrive? Estimating Travel Time Based on Deep Neural Networks***, but fixed some problems by OscarHsu.
+These are the code of AAAI 2018 paper ***When Will You Arrive? Estimating Travel Time Based on Deep Neural Networks***, but fixed some problems by NadaBadawi.
 
 This project provides the complete version of code and part of sample data in Chengdu.
 
 Original: https://github.com/UrbComp/DeepTTE
+and Updated Version: https://github.com/oscarhsu/DeepTTE
 
 # Environment :
 
-This program run on python2.7 
-
-**conda_env_CPU.yml** have the list of required libraries, include pyTorch-CPU.
-
-**conda_env_GPU.yml** have the list of required libraries, include pyTorch-GPU.
-
+This program run on python3.10 
 
 # Usage:
 
