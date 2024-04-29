@@ -42,7 +42,7 @@ parser.add_argument('--log_file', type = str, default='run_log_cpu')
 
 args = parser.parse_args()
 
-config = json.load(open('./config.json', 'r'))
+config = json.load(open('./config2.json', 'r'))
 
 
 # def write_result(fs, pred_dict, attr):
@@ -62,12 +62,13 @@ def write_result(fs, pred_dict, attr):
 
     for i in range(pred_dict['pred'].size()[0]):
         # Extract dateID, timeID, and driverID
+        trip_ID = attr['trip_id'].data[i]
         dateID = attr['dateID'].data[i]
         timeID = attr['timeID'].data[i]
         driverID = attr['driverID'].data[i]
         
         # Write dateID, timeID, and driverID to file
-        fs.write('%d %d %d' % (dateID, timeID, driverID))
+        fs.write('%d %d %d %d' % (trip_ID, dateID, timeID, driverID))
         
         # Write label and pred values to file
         fs.write(' %.6f %.6f\n' % (label[i][0], pred[i][0]))

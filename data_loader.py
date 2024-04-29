@@ -12,7 +12,7 @@ class MySet(Dataset):
     def __init__(self, input_file):
         self.content = []
         
-        with open('./data/' + input_file, 'r') as file:
+        with open('./new_data/' + input_file, 'r') as file:
             for line in file:
                 try:
                     json_dict = json.loads(line)

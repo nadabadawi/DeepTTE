@@ -27,8 +27,8 @@ parser.add_argument('--batch_size', type = int, default = 10)
 parser.add_argument('--epochs', type = int, default = 100)
 
 # evaluation args
-parser.add_argument('--weight_file', type = str)
-#parser.add_argument('--weight_file', type = str, default='./saved_weights/run_log_2020-08-04_05:19:28.520093')
+# parser.add_argument('--weight_file', type = str)
+parser.add_argument('--weight_file', type = str, default='./new_saved_weights/run_log_2024-01-31')
 parser.add_argument('--result_file', type = str)
 
 # cnn args
@@ -41,11 +41,11 @@ parser.add_argument('--pooling_method', type = str, default='attention')
 parser.add_argument('--alpha', type = float, default=0.1 )
 
 # log file name
-parser.add_argument('--log_file', type = str, default='run_log_0909_train1234_cpu')
+parser.add_argument('--log_file', type = str, default='run_log_1_cpu')
 
 args = parser.parse_args()
 
-config = json.load(open('./config.json', 'r'))
+config = json.load(open('./config2.json', 'r'))
 
 def train(model, elogger, train_set, eval_set):
     # record the experiment setting
@@ -54,8 +54,8 @@ def train(model, elogger, train_set, eval_set):
 
     model.train()
 
-    #if torch.cuda.is_available():
-    #    model.cuda()
+    if torch.cuda.is_available():
+       model.cuda()
 
 
 
