@@ -37,7 +37,8 @@ def collate_fn(data):
     # print("------------------")
     stat_attrs = ['dist', 'time']
     info_attrs = ['driverID', 'dateID', 'weekID', 'timeID']
-    traj_attrs = ['lngs', 'lats', 'states', 'time_gap', 'dist_gap']
+    traj_attrs = ['lngs', 'lats', 'time_gap', 'dist_gap']
+    # traj_attrs = ['lngs', 'lats', 'states', 'time_gap', 'dist_gap']
 
     attr, traj = {}, {}
 
@@ -103,12 +104,7 @@ class BatchSampler:
 
         chunk_size = self.batch_size * 100
 
-        # print("Hello: ", chunk_size)
-        # print("K: ", self.count)
-
         chunks = (self.count + chunk_size - 1) // chunk_size
-
-        # print("Chunks: ", chunks)
 
         # re-arrange indices to minimize the padding
         for i in range(chunks):
@@ -116,18 +112,8 @@ class BatchSampler:
             partial_indices.sort(key = lambda x: self.lengths[x], reverse = True)
             self.indices[i * chunk_size: (i + 1) * chunk_size] = partial_indices
 
-        # print(len(self.indices))
-
-        # print("Here now")
-
-        # print(self.indices)
-
         # yield batch
         batches = (self.count - 1 + self.batch_size) // self.batch_size
-
-        # print("Batch Size: ", self.batch_size)
-        # print("Batches: ", batches)
-
 
         for i in range(batches):
             yield self.indices[i * self.batch_size: (i + 1) * self.batch_size]

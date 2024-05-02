@@ -25,8 +25,8 @@ parser.add_argument('--batch_size', type = int, default = 1400)
 parser.add_argument('--epochs', type = int, default = 100)
 
 # evaluation args
-parser.add_argument('--weight_file', type = str, default='saved_weight_CPU')
-parser.add_argument('--result_file', type = str, default='./result/result_cpu.res')
+parser.add_argument('--weight_file', type = str, default='new_weights2')
+parser.add_argument('--result_file', type = str, default='./result/result_new2_cpu.res')
 
 # cnn args
 parser.add_argument('--kernel_size', type = int, default=3)
@@ -38,7 +38,7 @@ parser.add_argument('--pooling_method', type = str, default='attention')
 parser.add_argument('--alpha', type = float, default=0.1 )
 
 # log file name
-parser.add_argument('--log_file', type = str, default='run_log_cpu')
+parser.add_argument('--log_file', type = str, default='run_test_log_cpu')
 
 args = parser.parse_args()
 
@@ -62,13 +62,13 @@ def write_result(fs, pred_dict, attr):
 
     for i in range(pred_dict['pred'].size()[0]):
         # Extract dateID, timeID, and driverID
-        trip_ID = attr['trip_id'].data[i]
+        # trip_ID = attr['trip_id'].data[i]
         dateID = attr['dateID'].data[i]
         timeID = attr['timeID'].data[i]
         driverID = attr['driverID'].data[i]
         
         # Write dateID, timeID, and driverID to file
-        fs.write('%d %d %d %d' % (trip_ID, dateID, timeID, driverID))
+        fs.write('%d %d %d' % (dateID, timeID, driverID))
         
         # Write label and pred values to file
         fs.write(' %.6f %.6f\n' % (label[i][0], pred[i][0]))
@@ -123,7 +123,7 @@ def evaluate(model, elogger, files, save_result = False):
     if save_result: fs.close()
 
 def get_kwargs(model_class):
-    model_args = inspect.getargspec(model_class.__init__).args
+    model_args = inspect.getfullargspec(model_class.__init__).args
     shell_args = args._get_kwargs()
 
     kwargs = dict(shell_args)

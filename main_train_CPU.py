@@ -132,7 +132,7 @@ def evaluate(model, elogger, files, save_result = False):
     if save_result: fs.close()
 
 def get_kwargs(model_class):
-    model_args = inspect.getargspec(model_class.__init__).args
+    model_args = inspect.getfullargspec(model_class.__init__).args
     shell_args = args._get_kwargs()
 
     kwargs = dict(shell_args)

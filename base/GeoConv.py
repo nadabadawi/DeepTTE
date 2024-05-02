@@ -18,16 +18,20 @@ class Net(nn.Module):
 
     def build(self):
         self.state_em = nn.Embedding(2, 2)
-        self.process_coords = nn.Linear(4, 16)
+        self.process_coords = nn.Linear(2, 16)
         self.conv = nn.Conv1d(16, self.num_filter, self.kernel_size)
 
     def forward(self, traj, config):
         lngs = torch.unsqueeze(traj['lngs'], dim = 2)
         lats = torch.unsqueeze(traj['lats'], dim = 2)
 
-        states = self.state_em(traj['states'].long())
+        # states = self.state_em(traj['states'].long())
+        # print("Shape of lngs:", lngs.shape)
+        # print("Shape of lats:", lats.shape)
 
-        locs = torch.cat((lngs, lats, states), dim = 2)
+        locs = torch.cat((lngs, lats), dim = 2)
+        # locs = torch.cat((lngs, lats, states), dim = 2)
+        # print("Shape of locs after concatenation:", locs.shape)
 
         # map the coords into 16-dim vector
         locs = torch.tanh(self.process_coords(locs))

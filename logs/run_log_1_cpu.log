@@ -1,0 +1,529 @@
+Net(
+  (attr_net): Net(
+    (driverID_em): Embedding(24000, 16)
+    (weekID_em): Embedding(7, 3)
+    (timeID_em): Embedding(1440, 8)
+  )
+  (spatio_temporal): Net(
+    (geo_conv): Net(
+      (state_em): Embedding(2, 2)
+      (process_coords): Linear(in_features=2, out_features=16, bias=True)
+      (conv): Conv1d(16, 32, kernel_size=(3,), stride=(1,))
+    )
+    (rnn): LSTM(61, 128, num_layers=2, batch_first=True)
+    (attr2atten): Linear(in_features=28, out_features=128, bias=True)
+  )
+  (entire_estimate): EntireEstimator(
+    (input2hid): Linear(in_features=156, out_features=128, bias=True)
+    (residuals): ModuleList(
+      (0-2): 3 x Linear(in_features=128, out_features=128, bias=True)
+    )
+    (hid2out): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (local_estimate): LocalEstimator(
+    (input2hid): Linear(in_features=128, out_features=64, bias=True)
+    (hid2hid): Linear(in_features=64, out_features=32, bias=True)
+    (hid2out): Linear(in_features=32, out_features=1, bias=True)
+  )
+)
+[('task', 'train'), ('batch_size', 10), ('epochs', 100), ('weight_file', './new_saved_weights/run_log_2024-01-31'), ('result_file', None), ('kernel_size', 3), ('pooling_method', 'attention'), ('alpha', 0.1), ('log_file', 'run_log_1_cpu')]
+Training Epoch 0, File new_mapped_00, Loss 1.2295564413070679
+Training Epoch 0, File new_mapped_01, Loss 0.7536181211471558
+Training Epoch 0, File new_mapped_02, Loss 0.5724025964736938
+Evaluate File new_mapped_03, Loss 0.324824720621109
+Save weight file run_log_1_cpu_2024-04-30_18:02:08.109629
+Training Epoch 1, File new_mapped_00, Loss 0.4404504597187042
+Training Epoch 1, File new_mapped_01, Loss 0.3274172842502594
+Training Epoch 1, File new_mapped_02, Loss 0.35499656200408936
+Evaluate File new_mapped_03, Loss 0.45768460631370544
+Save weight file run_log_1_cpu_2024-04-30_18:07:02.174570
+Training Epoch 2, File new_mapped_00, Loss 0.4256751537322998
+Training Epoch 2, File new_mapped_01, Loss 0.3031896948814392
+Training Epoch 2, File new_mapped_02, Loss 0.3451981842517853
+Evaluate File new_mapped_03, Loss 0.4340461790561676
+Save weight file run_log_1_cpu_2024-04-30_18:11:49.636469
+Training Epoch 3, File new_mapped_00, Loss 0.3678686320781708
+Training Epoch 3, File new_mapped_01, Loss 0.34797561168670654
+Training Epoch 3, File new_mapped_02, Loss 0.39786165952682495
+Evaluate File new_mapped_03, Loss 0.40774670243263245
+Save weight file run_log_1_cpu_2024-04-30_18:16:39.880743
+Training Epoch 4, File new_mapped_00, Loss 0.4461846649646759
+Training Epoch 4, File new_mapped_01, Loss 0.32348886132240295
+Training Epoch 4, File new_mapped_02, Loss 0.33508601784706116
+Evaluate File new_mapped_03, Loss 0.3379027843475342
+Save weight file run_log_1_cpu_2024-04-30_18:21:33.480387
+Training Epoch 5, File new_mapped_00, Loss 0.3796755373477936
+Training Epoch 5, File new_mapped_01, Loss 0.38119152188301086
+Training Epoch 5, File new_mapped_02, Loss 0.35039451718330383
+Evaluate File new_mapped_03, Loss 0.3277556896209717
+Save weight file run_log_1_cpu_2024-04-30_18:26:29.716617
+Training Epoch 6, File new_mapped_00, Loss 0.33143624663352966
+Training Epoch 6, File new_mapped_01, Loss 0.35854974389076233
+Training Epoch 6, File new_mapped_02, Loss 0.3100416958332062
+Evaluate File new_mapped_03, Loss 0.37125900387763977
+Save weight file run_log_1_cpu_2024-04-30_18:31:22.553909
+Training Epoch 7, File new_mapped_00, Loss 0.2716951072216034
+Training Epoch 7, File new_mapped_01, Loss 0.34549379348754883
+Training Epoch 7, File new_mapped_02, Loss 0.2778317928314209
+Evaluate File new_mapped_03, Loss 0.40778884291648865
+Save weight file run_log_1_cpu_2024-04-30_18:36:21.148168
+Training Epoch 8, File new_mapped_00, Loss 0.2883646786212921
+Training Epoch 8, File new_mapped_01, Loss 0.3287968337535858
+Training Epoch 8, File new_mapped_02, Loss 0.2764415144920349
+Evaluate File new_mapped_03, Loss 0.18371576070785522
+Save weight file run_log_1_cpu_2024-04-30_18:41:11.721553
+Training Epoch 9, File new_mapped_00, Loss 0.27354922890663147
+Training Epoch 9, File new_mapped_01, Loss 0.3064996004104614
+Training Epoch 9, File new_mapped_02, Loss 0.2688846290111542
+Evaluate File new_mapped_03, Loss 0.4097985327243805
+Save weight file run_log_1_cpu_2024-04-30_18:45:59.066726
+Training Epoch 10, File new_mapped_00, Loss 0.24895091354846954
+Training Epoch 10, File new_mapped_01, Loss 0.24899692833423615
+Training Epoch 10, File new_mapped_02, Loss 0.23944881558418274
+Evaluate File new_mapped_03, Loss 0.4523378908634186
+Save weight file run_log_1_cpu_2024-04-30_18:50:48.959423
+Training Epoch 11, File new_mapped_00, Loss 0.25253570079803467
+Training Epoch 11, File new_mapped_01, Loss 0.2980392575263977
+Training Epoch 11, File new_mapped_02, Loss 0.24206779897212982
+Evaluate File new_mapped_03, Loss 0.3970476984977722
+Save weight file run_log_1_cpu_2024-04-30_18:55:36.183113
+Training Epoch 12, File new_mapped_00, Loss 0.24506030976772308
+Training Epoch 12, File new_mapped_01, Loss 0.26519298553466797
+Training Epoch 12, File new_mapped_02, Loss 0.24590490758419037
+Evaluate File new_mapped_03, Loss 0.40683066844940186
+Save weight file run_log_1_cpu_2024-04-30_19:00:24.603223
+Training Epoch 13, File new_mapped_00, Loss 0.17377692461013794
+Training Epoch 13, File new_mapped_01, Loss 0.24989114701747894
+Training Epoch 13, File new_mapped_02, Loss 0.24061378836631775
+Evaluate File new_mapped_03, Loss 0.44737085700035095
+Save weight file run_log_1_cpu_2024-04-30_19:05:14.630649
+Training Epoch 14, File new_mapped_00, Loss 0.15327857434749603
+Training Epoch 14, File new_mapped_01, Loss 0.2515452206134796
+Training Epoch 14, File new_mapped_02, Loss 0.16806867718696594
+Evaluate File new_mapped_03, Loss 0.5285621881484985
+Save weight file run_log_1_cpu_2024-04-30_19:10:05.920439
+Training Epoch 15, File new_mapped_00, Loss -0.038132812827825546
+Training Epoch 15, File new_mapped_01, Loss 0.20749107003211975
+Training Epoch 15, File new_mapped_02, Loss -0.19783666729927063
+Evaluate File new_mapped_03, Loss 0.4708259403705597
+Save weight file run_log_1_cpu_2024-04-30_19:14:56.543496
+Training Epoch 16, File new_mapped_00, Loss -2.946199655532837
+Training Epoch 16, File new_mapped_01, Loss -2.0269148349761963
+Training Epoch 16, File new_mapped_02, Loss -8.20658016204834
+Evaluate File new_mapped_03, Loss 6.682910442352295
+Save weight file run_log_1_cpu_2024-04-30_19:19:45.327538
+Training Epoch 17, File new_mapped_00, Loss -51.64948272705078
+Training Epoch 17, File new_mapped_01, Loss -29.279212951660156
+Training Epoch 17, File new_mapped_02, Loss -93.01042938232422
+Evaluate File new_mapped_03, Loss 69.0572738647461
+Save weight file run_log_1_cpu_2024-04-30_19:24:33.598659
+Training Epoch 18, File new_mapped_00, Loss -382.928955078125
+Training Epoch 18, File new_mapped_01, Loss -214.58193969726562
+Training Epoch 18, File new_mapped_02, Loss -532.3803100585938
+Evaluate File new_mapped_03, Loss 164.71160888671875
+Save weight file run_log_1_cpu_2024-04-30_19:29:19.619132
+Training Epoch 19, File new_mapped_00, Loss -1908.8359375
+Training Epoch 19, File new_mapped_01, Loss -903.1475830078125
+Training Epoch 19, File new_mapped_02, Loss -2136.3134765625
+Evaluate File new_mapped_03, Loss 1031.5684814453125
+Save weight file run_log_1_cpu_2024-04-30_19:34:08.431547
+Training Epoch 20, File new_mapped_00, Loss -6520.73193359375
+Training Epoch 20, File new_mapped_01, Loss -2853.4208984375
+Training Epoch 20, File new_mapped_02, Loss -5636.9833984375
+Evaluate File new_mapped_03, Loss 2452.2978515625
+Save weight file run_log_1_cpu_2024-04-30_19:39:01.470156
+Training Epoch 21, File new_mapped_00, Loss -15003.8955078125
+Training Epoch 21, File new_mapped_01, Loss -5973.2666015625
+Training Epoch 21, File new_mapped_02, Loss -12081.3232421875
+Evaluate File new_mapped_03, Loss 3898.68505859375
+Save weight file run_log_1_cpu_2024-04-30_19:43:50.092802
+Training Epoch 22, File new_mapped_00, Loss -30407.07421875
+Training Epoch 22, File new_mapped_01, Loss -11636.1787109375
+Training Epoch 22, File new_mapped_02, Loss -22667.662109375
+Evaluate File new_mapped_03, Loss 8662.638671875
+Save weight file run_log_1_cpu_2024-04-30_19:48:41.124745
+Training Epoch 23, File new_mapped_00, Loss -54999.640625
+Training Epoch 23, File new_mapped_01, Loss -20653.015625
+Training Epoch 23, File new_mapped_02, Loss -39889.078125
+Evaluate File new_mapped_03, Loss 16397.97265625
+Save weight file run_log_1_cpu_2024-04-30_19:53:30.379075
+Training Epoch 24, File new_mapped_00, Loss -95537.2578125
+Training Epoch 24, File new_mapped_01, Loss -34603.796875
+Training Epoch 24, File new_mapped_02, Loss -67439.0703125
+Evaluate File new_mapped_03, Loss 31182.845703125
+Save weight file run_log_1_cpu_2024-04-30_19:58:19.297039
+Training Epoch 25, File new_mapped_00, Loss -161214.21875
+Training Epoch 25, File new_mapped_01, Loss -58427.84375
+Training Epoch 25, File new_mapped_02, Loss -111971.390625
+Evaluate File new_mapped_03, Loss 47266.98046875
+Save weight file run_log_1_cpu_2024-04-30_20:03:11.802754
+Training Epoch 26, File new_mapped_00, Loss -261043.9375
+Training Epoch 26, File new_mapped_01, Loss -84855.21875
+Training Epoch 26, File new_mapped_02, Loss -174085.59375
+Evaluate File new_mapped_03, Loss 74026.0390625
+Save weight file run_log_1_cpu_2024-04-30_20:08:03.201323
+Training Epoch 27, File new_mapped_00, Loss -394106.40625
+Training Epoch 27, File new_mapped_01, Loss -136978.0625
+Training Epoch 27, File new_mapped_02, Loss -259509.109375
+Evaluate File new_mapped_03, Loss 96350.578125
+Save weight file run_log_1_cpu_2024-04-30_20:12:53.041946
+Training Epoch 28, File new_mapped_00, Loss -574443.0
+Training Epoch 28, File new_mapped_01, Loss -199283.015625
+Training Epoch 28, File new_mapped_02, Loss -369420.0625
+Evaluate File new_mapped_03, Loss 138862.796875
+Save weight file run_log_1_cpu_2024-04-30_20:17:48.589044
+Training Epoch 29, File new_mapped_00, Loss -817095.1875
+Training Epoch 29, File new_mapped_01, Loss -278320.5
+Training Epoch 29, File new_mapped_02, Loss -525843.125
+Evaluate File new_mapped_03, Loss 203860.421875
+Save weight file run_log_1_cpu_2024-04-30_20:22:37.852121
+Training Epoch 30, File new_mapped_00, Loss -1153063.75
+Training Epoch 30, File new_mapped_01, Loss -393130.875
+Training Epoch 30, File new_mapped_02, Loss -731526.5
+Evaluate File new_mapped_03, Loss 260132.6875
+Save weight file run_log_1_cpu_2024-04-30_20:27:25.158505
+Training Epoch 31, File new_mapped_00, Loss -1590052.5
+Training Epoch 31, File new_mapped_01, Loss -535182.125
+Training Epoch 31, File new_mapped_02, Loss -990909.3125
+Evaluate File new_mapped_03, Loss 33069.8984375
+Save weight file run_log_1_cpu_2024-04-30_20:32:13.269953
+Training Epoch 32, File new_mapped_00, Loss -2130954.75
+Training Epoch 32, File new_mapped_01, Loss -716322.875
+Training Epoch 32, File new_mapped_02, Loss -1319016.875
+Evaluate File new_mapped_03, Loss 418266.875
+Save weight file run_log_1_cpu_2024-04-30_20:37:00.843951
+Training Epoch 33, File new_mapped_00, Loss -2853938.0
+Training Epoch 33, File new_mapped_01, Loss -950442.5
+Training Epoch 33, File new_mapped_02, Loss -1748023.25
+Evaluate File new_mapped_03, Loss 498414.8125
+Save weight file run_log_1_cpu_2024-04-30_20:41:49.020941
+Training Epoch 34, File new_mapped_00, Loss -3730690.25
+Training Epoch 34, File new_mapped_01, Loss -1235239.875
+Training Epoch 34, File new_mapped_02, Loss -2269483.25
+Evaluate File new_mapped_03, Loss 960120.125
+Save weight file run_log_1_cpu_2024-04-30_20:46:37.576173
+Training Epoch 35, File new_mapped_00, Loss -4862628.5
+Training Epoch 35, File new_mapped_01, Loss -1609550.875
+Training Epoch 35, File new_mapped_02, Loss -2938253.75
+Evaluate File new_mapped_03, Loss 1051986.0
+Save weight file run_log_1_cpu_2024-04-30_20:51:25.522490
+Training Epoch 36, File new_mapped_00, Loss -6197091.5
+Training Epoch 36, File new_mapped_01, Loss -2042233.625
+Training Epoch 36, File new_mapped_02, Loss -3709906.5
+Evaluate File new_mapped_03, Loss 1062782.5
+Save weight file run_log_1_cpu_2024-04-30_20:56:11.280546
+Training Epoch 37, File new_mapped_00, Loss -7818728.0
+Training Epoch 37, File new_mapped_01, Loss -2562029.5
+Training Epoch 37, File new_mapped_02, Loss -4678679.0
+Evaluate File new_mapped_03, Loss 1625612.5
+Save weight file run_log_1_cpu_2024-04-30_21:01:02.127731
+Training Epoch 38, File new_mapped_00, Loss -9827056.0
+Training Epoch 38, File new_mapped_01, Loss -3221633.5
+Training Epoch 38, File new_mapped_02, Loss -5815044.0
+Evaluate File new_mapped_03, Loss 2184298.0
+Save weight file run_log_1_cpu_2024-04-30_21:05:51.806790
+Training Epoch 39, File new_mapped_00, Loss -12245901.0
+Training Epoch 39, File new_mapped_01, Loss -4006812.75
+Training Epoch 39, File new_mapped_02, Loss -7228902.5
+Evaluate File new_mapped_03, Loss 2416604.75
+Save weight file run_log_1_cpu_2024-04-30_21:10:39.978817
+Training Epoch 40, File new_mapped_00, Loss -15128951.0
+Training Epoch 40, File new_mapped_01, Loss -4786142.0
+Training Epoch 40, File new_mapped_02, Loss -8893460.0
+Evaluate File new_mapped_03, Loss 3527113.25
+Save weight file run_log_1_cpu_2024-04-30_21:15:26.018402
+Training Epoch 41, File new_mapped_00, Loss -18442568.0
+Training Epoch 41, File new_mapped_01, Loss -5988682.5
+Training Epoch 41, File new_mapped_02, Loss -10770135.0
+Evaluate File new_mapped_03, Loss 4340043.5
+Save weight file run_log_1_cpu_2024-04-30_21:20:17.729547
+Training Epoch 42, File new_mapped_00, Loss -22436184.0
+Training Epoch 42, File new_mapped_01, Loss -7279831.0
+Training Epoch 42, File new_mapped_02, Loss -13009448.0
+Evaluate File new_mapped_03, Loss 5240075.5
+Save weight file run_log_1_cpu_2024-04-30_21:25:05.414427
+Training Epoch 43, File new_mapped_00, Loss -26885632.0
+Training Epoch 43, File new_mapped_01, Loss -5137711.0
+Training Epoch 43, File new_mapped_02, Loss -15325227.0
+Evaluate File new_mapped_03, Loss 5563631.5
+Save weight file run_log_1_cpu_2024-04-30_21:29:53.522362
+Training Epoch 44, File new_mapped_00, Loss -31627966.0
+Training Epoch 44, File new_mapped_01, Loss -10166334.0
+Training Epoch 44, File new_mapped_02, Loss -18288240.0
+Evaluate File new_mapped_03, Loss 7453694.0
+Save weight file run_log_1_cpu_2024-04-30_21:34:43.509517
+Training Epoch 45, File new_mapped_00, Loss -37465968.0
+Training Epoch 45, File new_mapped_01, Loss -11946887.0
+Training Epoch 45, File new_mapped_02, Loss -21626316.0
+Evaluate File new_mapped_03, Loss 8272067.0
+Save weight file run_log_1_cpu_2024-04-30_21:39:32.656935
+Training Epoch 46, File new_mapped_00, Loss -44502388.0
+Training Epoch 46, File new_mapped_01, Loss -13975701.0
+Training Epoch 46, File new_mapped_02, Loss -25627266.0
+Evaluate File new_mapped_03, Loss 8342704.5
+Save weight file run_log_1_cpu_2024-04-30_21:44:22.841840
+Training Epoch 47, File new_mapped_00, Loss -52401040.0
+Training Epoch 47, File new_mapped_01, Loss -16348430.0
+Training Epoch 47, File new_mapped_02, Loss -30041902.0
+Evaluate File new_mapped_03, Loss 11547882.0
+Save weight file run_log_1_cpu_2024-04-30_21:49:11.989788
+Training Epoch 48, File new_mapped_00, Loss -61191360.0
+Training Epoch 48, File new_mapped_01, Loss -19103118.0
+Training Epoch 48, File new_mapped_02, Loss -35068252.0
+Evaluate File new_mapped_03, Loss 13025884.0
+Save weight file run_log_1_cpu_2024-04-30_21:54:02.326885
+Training Epoch 49, File new_mapped_00, Loss -71511792.0
+Training Epoch 49, File new_mapped_01, Loss -22307292.0
+Training Epoch 49, File new_mapped_02, Loss -41006628.0
+Evaluate File new_mapped_03, Loss 5246597.5
+Save weight file run_log_1_cpu_2024-04-30_21:58:53.547212
+Training Epoch 50, File new_mapped_00, Loss -83260200.0
+Training Epoch 50, File new_mapped_01, Loss -26018680.0
+Training Epoch 50, File new_mapped_02, Loss -47789276.0
+Evaluate File new_mapped_03, Loss 18238548.0
+Save weight file run_log_1_cpu_2024-04-30_22:03:40.420469
+Training Epoch 51, File new_mapped_00, Loss -96816960.0
+Training Epoch 51, File new_mapped_01, Loss -30047580.0
+Training Epoch 51, File new_mapped_02, Loss -55141928.0
+Evaluate File new_mapped_03, Loss 21185652.0
+Save weight file run_log_1_cpu_2024-04-30_22:08:27.165872
+Training Epoch 52, File new_mapped_00, Loss -112173264.0
+Training Epoch 52, File new_mapped_01, Loss -34782744.0
+Training Epoch 52, File new_mapped_02, Loss -63397176.0
+Evaluate File new_mapped_03, Loss 79045576.0
+Save weight file run_log_1_cpu_2024-04-30_22:13:17.794051
+Training Epoch 53, File new_mapped_00, Loss -129034864.0
+Training Epoch 53, File new_mapped_01, Loss -40199800.0
+Training Epoch 53, File new_mapped_02, Loss -73255776.0
+Evaluate File new_mapped_03, Loss 25969290.0
+Save weight file run_log_1_cpu_2024-04-30_22:18:03.251498
+Training Epoch 54, File new_mapped_00, Loss -147922688.0
+Training Epoch 54, File new_mapped_01, Loss -46023876.0
+Training Epoch 54, File new_mapped_02, Loss -83701688.0
+Evaluate File new_mapped_03, Loss 26122614.0
+Save weight file run_log_1_cpu_2024-04-30_22:22:52.648128
+Training Epoch 55, File new_mapped_00, Loss -169604496.0
+Training Epoch 55, File new_mapped_01, Loss -38120160.0
+Training Epoch 55, File new_mapped_02, Loss -94651568.0
+Evaluate File new_mapped_03, Loss 33501386.0
+Save weight file run_log_1_cpu_2024-04-30_22:27:37.571070
+Training Epoch 56, File new_mapped_00, Loss -192248448.0
+Training Epoch 56, File new_mapped_01, Loss -59722324.0
+Training Epoch 56, File new_mapped_02, Loss -107118400.0
+Evaluate File new_mapped_03, Loss 36616124.0
+Save weight file run_log_1_cpu_2024-04-30_22:32:24.970155
+Training Epoch 57, File new_mapped_00, Loss -218081456.0
+Training Epoch 57, File new_mapped_01, Loss -67321768.0
+Training Epoch 57, File new_mapped_02, Loss -122100864.0
+Evaluate File new_mapped_03, Loss 40987896.0
+Save weight file run_log_1_cpu_2024-04-30_22:37:13.941152
+Training Epoch 58, File new_mapped_00, Loss -246404592.0
+Training Epoch 58, File new_mapped_01, Loss -75733536.0
+Training Epoch 58, File new_mapped_02, Loss -138774624.0
+Evaluate File new_mapped_03, Loss 51018048.0
+Save weight file run_log_1_cpu_2024-04-30_22:42:00.965779
+Training Epoch 59, File new_mapped_00, Loss -279392288.0
+Training Epoch 59, File new_mapped_01, Loss -85852184.0
+Training Epoch 59, File new_mapped_02, Loss -156802144.0
+Evaluate File new_mapped_03, Loss 55281628.0
+Save weight file run_log_1_cpu_2024-04-30_22:46:52.176198
+Training Epoch 60, File new_mapped_00, Loss -315722656.0
+Training Epoch 60, File new_mapped_01, Loss -96840600.0
+Training Epoch 60, File new_mapped_02, Loss -177250560.0
+Evaluate File new_mapped_03, Loss 60798744.0
+Save weight file run_log_1_cpu_2024-04-30_22:51:41.803673
+Training Epoch 61, File new_mapped_00, Loss -354765664.0
+Training Epoch 61, File new_mapped_01, Loss -108839184.0
+Training Epoch 61, File new_mapped_02, Loss -198656320.0
+Evaluate File new_mapped_03, Loss 78684296.0
+Save weight file run_log_1_cpu_2024-04-30_22:56:24.461971
+Training Epoch 62, File new_mapped_00, Loss -397905024.0
+Training Epoch 62, File new_mapped_01, Loss -121018632.0
+Training Epoch 62, File new_mapped_02, Loss -222324560.0
+Evaluate File new_mapped_03, Loss 73972040.0
+Save weight file run_log_1_cpu_2024-04-30_23:01:13.574784
+Training Epoch 63, File new_mapped_00, Loss -444992160.0
+Training Epoch 63, File new_mapped_01, Loss -136179568.0
+Training Epoch 63, File new_mapped_02, Loss -247883936.0
+Evaluate File new_mapped_03, Loss 84211400.0
+Save weight file run_log_1_cpu_2024-04-30_23:05:59.177655
+Training Epoch 64, File new_mapped_00, Loss -497461824.0
+Training Epoch 64, File new_mapped_01, Loss -152440992.0
+Training Epoch 64, File new_mapped_02, Loss -277570848.0
+Evaluate File new_mapped_03, Loss 98968664.0
+Save weight file run_log_1_cpu_2024-04-30_23:10:46.265752
+Training Epoch 65, File new_mapped_00, Loss -554982208.0
+Training Epoch 65, File new_mapped_01, Loss -169035536.0
+Training Epoch 65, File new_mapped_02, Loss -309824672.0
+Evaluate File new_mapped_03, Loss 120477608.0
+Save weight file run_log_1_cpu_2024-04-30_23:15:33.271625
+Training Epoch 66, File new_mapped_00, Loss -617493056.0
+Training Epoch 66, File new_mapped_01, Loss -189288528.0
+Training Epoch 66, File new_mapped_02, Loss -342566624.0
+Evaluate File new_mapped_03, Loss 136335600.0
+Save weight file run_log_1_cpu_2024-04-30_23:20:19.828148
+Training Epoch 67, File new_mapped_00, Loss -685313344.0
+Training Epoch 67, File new_mapped_01, Loss -208539392.0
+Training Epoch 67, File new_mapped_02, Loss -379071072.0
+Evaluate File new_mapped_03, Loss 278620736.0
+Save weight file run_log_1_cpu_2024-04-30_23:25:09.167916
+Training Epoch 68, File new_mapped_00, Loss -757945024.0
+Training Epoch 68, File new_mapped_01, Loss -231833808.0
+Training Epoch 68, File new_mapped_02, Loss -420412544.0
+Evaluate File new_mapped_03, Loss 160178832.0
+Save weight file run_log_1_cpu_2024-04-30_23:29:56.743817
+Training Epoch 69, File new_mapped_00, Loss -838151040.0
+Training Epoch 69, File new_mapped_01, Loss -256007392.0
+Training Epoch 69, File new_mapped_02, Loss -465087968.0
+Evaluate File new_mapped_03, Loss 169634144.0
+Save weight file run_log_1_cpu_2024-04-30_23:34:42.890713
+Training Epoch 70, File new_mapped_00, Loss -922636224.0
+Training Epoch 70, File new_mapped_01, Loss -282810368.0
+Training Epoch 70, File new_mapped_02, Loss -510671360.0
+Evaluate File new_mapped_03, Loss 277007232.0
+Save weight file run_log_1_cpu_2024-04-30_23:39:32.118184
+Training Epoch 71, File new_mapped_00, Loss -1015922304.0
+Training Epoch 71, File new_mapped_01, Loss -309825664.0
+Training Epoch 71, File new_mapped_02, Loss -561990912.0
+Evaluate File new_mapped_03, Loss 167044176.0
+Save weight file run_log_1_cpu_2024-04-30_23:44:20.643266
+Training Epoch 72, File new_mapped_00, Loss -1117192064.0
+Training Epoch 72, File new_mapped_01, Loss -342460096.0
+Training Epoch 72, File new_mapped_02, Loss -619291776.0
+Evaluate File new_mapped_03, Loss 224649968.0
+Save weight file run_log_1_cpu_2024-04-30_23:49:11.024548
+Training Epoch 73, File new_mapped_00, Loss -1227519744.0
+Training Epoch 73, File new_mapped_01, Loss -376751456.0
+Training Epoch 73, File new_mapped_02, Loss -679775424.0
+Evaluate File new_mapped_03, Loss 246337792.0
+Save weight file run_log_1_cpu_2024-04-30_23:54:01.552735
+Training Epoch 74, File new_mapped_00, Loss -1348817024.0
+Training Epoch 74, File new_mapped_01, Loss -413721536.0
+Training Epoch 74, File new_mapped_02, Loss -746518144.0
+Evaluate File new_mapped_03, Loss 270794848.0
+Save weight file run_log_1_cpu_2024-04-30_23:58:46.866287
+Training Epoch 75, File new_mapped_00, Loss -1476947456.0
+Training Epoch 75, File new_mapped_01, Loss -453837312.0
+Training Epoch 75, File new_mapped_02, Loss -815580800.0
+Evaluate File new_mapped_03, Loss 300257824.0
+Save weight file run_log_1_cpu_2024-05-01_00:03:33.930837
+Training Epoch 76, File new_mapped_00, Loss -1616334208.0
+Training Epoch 76, File new_mapped_01, Loss -300576128.0
+Training Epoch 76, File new_mapped_02, Loss -886432768.0
+Evaluate File new_mapped_03, Loss 356265696.0
+Save weight file run_log_1_cpu_2024-05-01_00:08:24.081077
+Training Epoch 77, File new_mapped_00, Loss -1754807552.0
+Training Epoch 77, File new_mapped_01, Loss -538713536.0
+Training Epoch 77, File new_mapped_02, Loss -968715264.0
+Evaluate File new_mapped_03, Loss 388376160.0
+Save weight file run_log_1_cpu_2024-05-01_00:13:14.023779
+Training Epoch 78, File new_mapped_00, Loss -1922197120.0
+Training Epoch 78, File new_mapped_01, Loss -588457728.0
+Training Epoch 78, File new_mapped_02, Loss -1059098368.0
+Evaluate File new_mapped_03, Loss 442815424.0
+Save weight file run_log_1_cpu_2024-05-01_00:18:03.370151
+Training Epoch 79, File new_mapped_00, Loss -2091205888.0
+Training Epoch 79, File new_mapped_01, Loss -638637184.0
+Training Epoch 79, File new_mapped_02, Loss -1151246848.0
+Evaluate File new_mapped_03, Loss 488374336.0
+Save weight file run_log_1_cpu_2024-05-01_00:22:52.430540
+Training Epoch 80, File new_mapped_00, Loss -2269201920.0
+Training Epoch 80, File new_mapped_01, Loss -693886400.0
+Training Epoch 80, File new_mapped_02, Loss -1247858176.0
+Evaluate File new_mapped_03, Loss 525185664.0
+Save weight file run_log_1_cpu_2024-05-01_00:27:40.251999
+Training Epoch 81, File new_mapped_00, Loss -2464665088.0
+Training Epoch 81, File new_mapped_01, Loss -752146688.0
+Training Epoch 81, File new_mapped_02, Loss -1356744832.0
+Evaluate File new_mapped_03, Loss 468131424.0
+Save weight file run_log_1_cpu_2024-05-01_00:32:30.928228
+Training Epoch 82, File new_mapped_00, Loss -2680930560.0
+Training Epoch 82, File new_mapped_01, Loss -817952000.0
+Training Epoch 82, File new_mapped_02, Loss -1474111104.0
+Evaluate File new_mapped_03, Loss 563644160.0
+Save weight file run_log_1_cpu_2024-05-01_00:37:17.271974
+Training Epoch 83, File new_mapped_00, Loss -2905824256.0
+Training Epoch 83, File new_mapped_01, Loss -888051840.0
+Training Epoch 83, File new_mapped_02, Loss -1589760640.0
+Evaluate File new_mapped_03, Loss 587315520.0
+Save weight file run_log_1_cpu_2024-05-01_00:42:08.230689
+Training Epoch 84, File new_mapped_00, Loss -3144714752.0
+Training Epoch 84, File new_mapped_01, Loss -961589184.0
+Training Epoch 84, File new_mapped_02, Loss -1725849728.0
+Evaluate File new_mapped_03, Loss 639334272.0
+Save weight file run_log_1_cpu_2024-05-01_00:46:56.600635
+Training Epoch 85, File new_mapped_00, Loss -3401939200.0
+Training Epoch 85, File new_mapped_01, Loss -1036435008.0
+Training Epoch 85, File new_mapped_02, Loss -1864555392.0
+Evaluate File new_mapped_03, Loss 645466560.0
+Save weight file run_log_1_cpu_2024-05-01_00:51:46.913487
+Training Epoch 86, File new_mapped_00, Loss -3667501312.0
+Training Epoch 86, File new_mapped_01, Loss -1121205760.0
+Training Epoch 86, File new_mapped_02, Loss -2013943552.0
+Evaluate File new_mapped_03, Loss 691753792.0
+Save weight file run_log_1_cpu_2024-05-01_00:56:40.896088
+Training Epoch 87, File new_mapped_00, Loss -3970354432.0
+Training Epoch 87, File new_mapped_01, Loss -1214455296.0
+Training Epoch 87, File new_mapped_02, Loss -2178086912.0
+Evaluate File new_mapped_03, Loss 856657984.0
+Save weight file run_log_1_cpu_2024-05-01_01:01:33.075601
+Training Epoch 88, File new_mapped_00, Loss -4283220992.0
+Training Epoch 88, File new_mapped_01, Loss -1306414336.0
+Training Epoch 88, File new_mapped_02, Loss -2353221888.0
+Evaluate File new_mapped_03, Loss 877767744.0
+Save weight file run_log_1_cpu_2024-05-01_01:06:22.997749
+Training Epoch 89, File new_mapped_00, Loss -4630746112.0
+Training Epoch 89, File new_mapped_01, Loss -1417341824.0
+Training Epoch 89, File new_mapped_02, Loss -2533693184.0
+Evaluate File new_mapped_03, Loss 946209600.0
+Save weight file run_log_1_cpu_2024-05-01_01:11:10.568637
+Training Epoch 90, File new_mapped_00, Loss -4977178624.0
+Training Epoch 90, File new_mapped_01, Loss -1522643200.0
+Training Epoch 90, File new_mapped_02, Loss -2724356352.0
+Evaluate File new_mapped_03, Loss 961952704.0
+Save weight file run_log_1_cpu_2024-05-01_01:15:58.944616
+Training Epoch 91, File new_mapped_00, Loss -5345728000.0
+Training Epoch 91, File new_mapped_01, Loss -1636066944.0
+Training Epoch 91, File new_mapped_02, Loss -2925871360.0
+Evaluate File new_mapped_03, Loss 1036515584.0
+Save weight file run_log_1_cpu_2024-05-01_01:20:45.264055
+Training Epoch 92, File new_mapped_00, Loss -5747333120.0
+Training Epoch 92, File new_mapped_01, Loss -1758566400.0
+Training Epoch 92, File new_mapped_02, Loss -3145597696.0
+Evaluate File new_mapped_03, Loss 1003160832.0
+Save weight file run_log_1_cpu_2024-05-01_01:25:40.362474
+Training Epoch 93, File new_mapped_00, Loss -6178250752.0
+Training Epoch 93, File new_mapped_01, Loss -1892533376.0
+Training Epoch 93, File new_mapped_02, Loss -3386687232.0
+Evaluate File new_mapped_03, Loss 1219906944.0
+Save weight file run_log_1_cpu_2024-05-01_01:30:31.225679
+Training Epoch 94, File new_mapped_00, Loss -6644446720.0
+Training Epoch 94, File new_mapped_01, Loss -2034290816.0
+Training Epoch 94, File new_mapped_02, Loss -3634874112.0
+Evaluate File new_mapped_03, Loss 1337499392.0
+Save weight file run_log_1_cpu_2024-05-01_01:35:21.794496
+Training Epoch 95, File new_mapped_00, Loss -7129396224.0
+Training Epoch 95, File new_mapped_01, Loss -2181319168.0
+Training Epoch 95, File new_mapped_02, Loss -3893241088.0
+Evaluate File new_mapped_03, Loss 1452068352.0
+Save weight file run_log_1_cpu_2024-05-01_01:40:11.615007
+Training Epoch 96, File new_mapped_00, Loss -7657010176.0
+Training Epoch 96, File new_mapped_01, Loss -2344650496.0
+Training Epoch 96, File new_mapped_02, Loss -4189605888.0
+Evaluate File new_mapped_03, Loss 1646552320.0
+Save weight file run_log_1_cpu_2024-05-01_01:45:03.461289
+Training Epoch 97, File new_mapped_00, Loss -8202184192.0
+Training Epoch 97, File new_mapped_01, Loss -2511926528.0
+Training Epoch 97, File new_mapped_02, Loss -4483097600.0
+Evaluate File new_mapped_03, Loss 1570718080.0
+Save weight file run_log_1_cpu_2024-05-01_01:49:55.696255
+Training Epoch 98, File new_mapped_00, Loss -8772647936.0
+Training Epoch 98, File new_mapped_01, Loss -2683515648.0
+Training Epoch 98, File new_mapped_02, Loss -4770907136.0
+Evaluate File new_mapped_03, Loss 1706121728.0
+Save weight file run_log_1_cpu_2024-05-01_01:54:45.915161
+Training Epoch 99, File new_mapped_00, Loss -9346433024.0
+Training Epoch 99, File new_mapped_01, Loss -2863674624.0
+Training Epoch 99, File new_mapped_02, Loss -5084421120.0
+Evaluate File new_mapped_03, Loss 1576284928.0
+Save weight file run_log_1_cpu_2024-05-01_01:59:36.726431
